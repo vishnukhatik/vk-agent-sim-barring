@@ -1,0 +1,48 @@
+{
+    "phoneNumber":"+2929839010",
+    "currentSIMType":"Physical",
+    "ICCID":"122456789",
+    "offerName":"Blau Allnet",
+    "simTypes":[
+     "esim",
+     "SIM Card"
+    ],
+    "paymentMethods":[
+     "Direct Debit",
+     "Account Balance"
+    ],
+    "swapReasonFee": [
+                {
+                  "reason": "SIM defect",
+                  "fee": 0
+                },
+                {
+                  "reason": "Other device",
+                  "fee": 10
+                },
+                {
+                  "reason": "eSIM profile deleted",
+                  "fee": 5
+                },
+                {
+                  "reason": "Device stolen / lost",
+                  "fee": 15
+                },
+                {
+                  "reason": "Other SIM format needed",
+                  "fee": 10
+                },
+                {
+                  "reason": "Device exchange / repair",
+                  "fee": 10
+                },
+                {
+                  "reason": "Change eSIM",
+                  "fee": 5
+                },
+                {
+                  "reason": "SIM stolen / Lost",
+                  "fee": 10
+                }
+              ]
+  }

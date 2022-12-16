@@ -1,0 +1,73 @@
+{
+  "defaultBtnLabel": "Default",
+  "editBtnLabel": "Edit",
+  "removeBtnLabel": "Remove",
+  "cancelBtnLabel": "Cancel",
+  "confirmBtnLabel": "Confirm",
+  "saveBtnLabel": "Save",
+  "nextBtnLabel": "Next",
+  "closeBtnLabel": "Close",
+  "dateFormat": "MM/yyyy",
+  "paymentMethodTitle": "Payment Methods",
+  "paymentMethodDescription": "<p>Alii autem, quibus ego assentior, cum teneam...</p>\n",
+  "addPaymentMethodBtnLabel": "Add Payment Method",
+  "directdebitpaymentsetasdefault": {
+    "consentLabel": "<p><b>Alii autem, quibus ego assentior, cum teneam...</b></p>\n",
+    "singleAccount": "Single Account Label"
+  },
+  "addPaymentMethodScreen": {
+    "title": "Add Payment Method",
+    "header": "Alii autem, quibus ego assentior, cum teneam...",
+    "debitCreditCardLabel": "Credit/Debit Card"
+  },
+  "addDirectdebitPaymentScreen": {
+    "header": "<p>Alii autem, quibus ego assentior, cum teneam...</p>\n",
+    "ibanHint": "???",
+    "bankLabel": "Bank (Will automatically complete)",
+    "bicSwiftLabel": "BIC/SWIFT code (Will automatically complete)",
+    "bankAccountOwnerLabel": "Bank Account Owner",
+    "defaultCheckboxLabel": "Set as a default",
+    "agreeCheckboxConsent": "I agree to allow TEF to collect payment via direct debit from my bank account",
+    "errorMessages": [
+      "fieldRequired=Required",
+      "inccorectIban=Please provide ccorrect IBAN",
+      "notEligible=You are not eligible to set up Direct Debit. Please contact customer support for more information"
+    ]
+  },
+  "addDirectdebit3rdPartyPaymentScreen": {
+    "header": "<p>Alii autem, quibus ego assentior, cum teneam...</p>\n",
+    "ibanHint": "???",
+    "bankLabel": "Bank (Will automatically complete)",
+    "bicSwiftLabel": "BIC/SWIFT code (Will automatically complete)",
+    "ownerDetailsHeader": "<p>To use a third-party bank account, you are required to submit the bank account owner's details.</p>\n",
+    "fullName": "Full name",
+    "streetAddress": "Street address",
+    "postalCode": "Postal code",
+    "location": "Location",
+    "defaultCheckboxLabel": "Set as a default",
+    "agreeCheckboxConsent": "I agree to allow TEF to collect payment via direct debit from my bank account",
+    "errorMessages": [
+      "fieldRequired=Required*",
+      "inncorectIban=Please provide ccorrect IBAN",
+      "notEligible=You are not eligible to set up Direct Debit. Please contact customer support for more information"
+    ]
+  },
+  "editDirectdebitPaymentScreen": {
+    "header": "<p>Alii autem, quibus ego assentior, cum teneam...</p>\n",
+    "fullName": "Full Name",
+    "streetAddress": "Street Address and Number",
+    "postalCode": "Postal code",
+    "location": "location",
+    "defaultCheckboxLabel": "Set as a default",
+    "agreeCheckboxConsent": "I agree to allow TEF to collect payment via direct debit from my bank account",
+    "errorMessages": [
+      "fieldRequired=Required",
+      "inccorectIban=Please provide ccorrect IBAN",
+      "notEligible=You are not eligible to set up Direct Debit. Please contact customer support for more information"
+    ]
+  },
+  "removeDirectdebitPaymentScreen": {
+    "setAnotherDefaultMethodMessage": "<p>set_another_default_method_message&quot;: &quot;You are going to remove your default payment method. Please set another payment method as a default prior to removing current one.</p>\n",
+    "removePaymentMessage": "<p>remove_payment_message&quot;: &quot;You're going to remove your peyment method. Please confirm action.</p>\n"
+  }
+}

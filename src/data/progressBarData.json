@@ -1,0 +1,17 @@
+{
+  "selectSim": [
+    { "name": "Select SIM Type", "active": true },
+    { "name": "Payment", "active": false },
+    { "name": "Download / Activate SIM", "active": false }
+  ],
+  "selectPayment": [
+    { "name": "Select SIM Type", "active": true },
+    { "name": "Payment", "active": true },
+    { "name": "Download / Activate SIM", "active": false }
+  ],
+  "simBarring": [
+    { "name": "Select SIM Type", "active": true },
+    { "name": "Payment", "active": true },
+    { "name": "Download / Activate SIM", "active": true }
+  ]
+}

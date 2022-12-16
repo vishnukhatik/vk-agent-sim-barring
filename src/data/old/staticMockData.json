@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "bank": "Deutsche Bank",
+    "accountNumber": 8763,
+    "accountHolder": "Milla Meyer"
+  },
+  {
+    "id": "2",
+    "bank": "Citi Bank",
+    "accountNumber": 2763,
+    "accountHolder": "Milla Meyer"
+  },
+  {
+    "id": "3",
+    "bank": "Adv Bank",
+    "accountNumber": 2764,
+    "accountHolder": "Milla Meyer"
+  }
+]

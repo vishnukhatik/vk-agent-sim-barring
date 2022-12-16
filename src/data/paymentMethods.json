@@ -1,0 +1,17 @@
+{
+    "data": [
+      {
+        "slug": "card",
+        "title": "Credit/Debit Card"
+      },
+      {
+        "slug": "paypal",
+        "title": "PayPal"
+      },
+      {
+        "slug": "DirectDebit",
+        "title": "Direct Debit"
+      }
+    ]
+  }
+  

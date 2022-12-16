@@ -1,0 +1,16 @@
+{
+  "simSwapStepTitles": [
+    "Select SIM Type",
+    "Payment",
+    "Download / Activate SIM"
+  ],
+  "selectSimHeader": "Swap Your SIM",
+  "replaceSimHeader": "Replace your existing SIM/eSIM with a new eSIM",
+  "cartHeader": "Shopping Cart",
+  "paymentHeader": "Payment Details",
+  "paymentSubHeader": "Alii autem, quibus ago assinitor, cum teneam senteniam, quid malum.",
+  "simBarringHeader": "Authenticate your Account",
+  "scanQrHeader": "Scan the QR code with Your device",
+  "scanQrSubHeader": "Use the camera on your separate device to scan the QR code and activate the eSIM now",
+  "esimActivatedHeader": "You're All Ready To Go"
+}

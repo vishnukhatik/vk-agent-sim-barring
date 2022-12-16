@@ -1,0 +1,141 @@
+#######################################
+# BORN Group - Mihai Cornateanu - v16 #
+#######################################
+
+image: dot-portal.de.pri.o2.com:8079/node:lts
+
+stages:
+  - build
+  - test
+  - scan
+  - publish
+
+build:
+  stage: build
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ "/master/ppscale-master/pi4-master/demo/" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+  script:
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/public-npm/
+    - npm install
+    - npm run build
+  artifacts:
+    name: package
+    when: always
+    paths:
+      - dist
+  tags:
+    - mfe-dev
+
+jest:
+  stage: test
+  image:
+    name: dot-portal.de.pri.o2.com:8079/nikolaik/python-nodejs
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ "/master/ppscale-master/pi4-master/demo/" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/public-npm/
+    - npm i
+    - npm run test
+  artifacts:
+    name: coverage
+    when: always
+    paths:
+      - coverage
+  tags:
+    - mfe-dev
+
+sonarqube:
+  stage: scan
+  image:
+    name: dot-portal.de.pri.o2.com:8079/sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ "/master/ppscale-master/pi4-master/demo/" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  needs:
+    - jest
+  script:
+    - sonar-scanner -Dsonar.qualitygate.wait=true
+  allow_failure: true
+  tags:
+    - mfe-dev
+
+kiuwan:
+  stage: scan
+  image: 
+    name: dot-portal.de.pri.o2.com:8079/sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ "/master/ppscale-master/pi4-master/demo/" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+  script:
+    - echo "Kiuwan will be running here... "
+  tags:
+    - mfe-dev
+
+publish:master:
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+  script:
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - ls -la
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/npm-private/
+    - npm config set _auth ${NPM_AUTH}
+    - npm whoami
+    - npm publish
+  tags:
+    - mfe-dev
+
+publish:ppscale-master:
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "ppscale-master"'
+  script:
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - ls -la
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/npm-private/
+    - npm config set _auth ${NPM_AUTH}
+    - npm whoami
+    - npm publish
+  tags:
+    - mfe-dev
+
+publish:pi4-master:
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "pi4-master"'
+  script:
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - ls -la
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/npm-private/
+    - npm config set _auth ${NPM_AUTH}
+    - npm whoami
+    - npm publish
+  tags:
+    - mfe-dev
+
+demo:per-branch:
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "demo"'
+  script:
+    - echo "This job runs code from demo branch and appends -demo to version"
+    - git config user.email "gitlab@dot-portal.de.pri.o2.com"
+    - git config user.name "Gitlab Pipeline"
+    - echo "Update version to:" && npm version `node -p "require('./package.json').version"`-$CI_COMMIT_BRANCH
+    - echo "Cleanup" && rm -fr .gitlab-ci.yml .gitlab .npmrc
+    - ls -la
+    - npm config set registry https://dot-portal.de.pri.o2.com/nexus/repository/npm-private/
+    - npm config set _auth ${NPM_AUTH}
+    - npm whoami
+    - ls -la
+    - npm publish
+  tags:
+    - mfe-dev
